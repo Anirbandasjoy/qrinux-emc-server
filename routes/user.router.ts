@@ -20,7 +20,7 @@ import {
 } from "../validators/auth";
 import { runValidation } from "../validators";
 import { isAdmin, isLogin } from "../middleware/auth";
-import { validateParamsId } from "../validators/booking";
+import { validateParamsId } from "../validators/common";
 
 userRouter.post(
   "/process-registation",

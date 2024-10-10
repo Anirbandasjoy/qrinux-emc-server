@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-import { p_dbURL } from "../helper/secret";
-
-const dbURL = p_dbURL;
+import { dbURL, p_dbURL } from "../helper/secret";
 
 if (!dbURL) {
   throw new Error(
@@ -14,11 +12,11 @@ const dbConnection = async () => {
     await mongoose.connect(dbURL as string);
     console.log("Database is connected successfully");
 
-    mongoose.connection.on("error", (error) => {
-      console.error("Database connection error", error);
+    mongoose.connection.on("error", (error: any) => {
+      console.error("Database connection error", error.message);
     });
-  } catch (error) {
-    console.error("Initial database connection error", error);
+  } catch (error: any) {
+    console.error("Initial database connection error", error.message);
   }
 };
 

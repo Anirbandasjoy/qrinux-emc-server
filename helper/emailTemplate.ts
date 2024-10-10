@@ -1,5 +1,4 @@
-import { smtpUserName } from "./secret";
-import { client_production_url } from "./secret";
+import { client_local_url, smtpUserName } from "./secret";
 
 export const generateActivationEmailTemplate = (
   name: string,
@@ -55,10 +54,10 @@ export const generateActivationEmailTemplate = (
           <p>Dear ${name},</p>
           <p>Thank you for registering with us!</p>
           <p>Please click the following link to activate your account:</p>
-          <p><a href="${client_production_url}/user/activate/${token}" target="_blank">Activate Account</a></p>
+          <p><a href="${client_local_url}/user/activate/${token}" target="_blank">Activate Account</a></p>
           <p>If you did not request this registration, you can ignore this email.</p>
           <p>Best regards,</p>
-          <p>The [ADJPA] Team</p>
+          <p>The Qrinux Team</p>
         </div>
         <div class="footer">
           <p>This email was sent to ${smtpUserName}. If you received this email by mistake, please contact us.</p>

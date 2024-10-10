@@ -44,12 +44,13 @@ const userSchema = new Schema<UserDocument>(
     },
     role: {
       type: String,
+      enum: ["admin", "user", "sellar"],
       default: "user",
       trim: true,
     },
-    birthdate : {
-      type : String,
-      default : null
+    birthdate: {
+      type: String,
+      default: null,
     },
     googleId: {
       type: String,
@@ -59,7 +60,6 @@ const userSchema = new Schema<UserDocument>(
       type: String,
       default: null,
     },
-   
   },
   { timestamps: true }
 );
@@ -69,3 +69,7 @@ const User = model<UserDocument>("User", userSchema);
 export default User;
 
 export { UserDocument };
+
+//
+
+// home 1, home 2 home 3
