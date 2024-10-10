@@ -54,43 +54,16 @@ export const handleGetAllCartItems = async (
   }
 };
 
-export const handleGetSingleCartItem = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const { product_id } = req.params;
-    const user_id = req.user?._id;
-
-    const cartItem = await Cart.findOne({ product_id, user_id }).populate(
-      "product_id"
-    );
-
-    if (!cartItem) {
-      return next(createError(404, "Cart item not found"));
-    }
-
-    successResponse(res, {
-      statusCode: 200,
-      message: "Cart item retrieved successfully",
-      payload: cartItem,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
 export const handleDeleteFromCart = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { product_id } = req.params;
+    const { id } = req.params;
     const user_id = req.user?._id;
 
-    const deletedCart = await Cart.findOneAndDelete({ product_id, user_id });
+    const deletedCart = await Cart.findOneAndDelete({ id, user_id });
 
     if (!deletedCart) {
       return next(createError(404, "Cart item not found"));
