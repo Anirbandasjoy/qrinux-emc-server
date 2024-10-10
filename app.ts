@@ -16,6 +16,7 @@ import "./config/passport";
 import categoryRouter from "./routes/category.router";
 import productRouter from "./routes/product.router";
 import wishlistRouter from "./routes/wishlist.router";
+import orderRouter from "./routes/order.router";
 
 const app = express();
 app.use(express.json());
@@ -43,6 +44,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/wishlist", wishlistRouter);
+app.use("/api/v1/order", orderRouter);
 app.get("/", (req: Request, res: Response) => {
   res.json({
     message: "Hello, Qrinux Ecommerce.",

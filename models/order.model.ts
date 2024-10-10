@@ -13,6 +13,10 @@ const orderSchema = new Schema(
         message: "At least one product_id is required",
       },
     },
+    total_price: {
+      type: Number,
+      required: [true, "total_price is required"],
+    },
     user_id: {
       type: Schema,
       ref: "User",
